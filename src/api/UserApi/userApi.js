@@ -27,6 +27,7 @@ const read = async (params, credentials, signal) => {
       {
         method: "GET",
         headers: {
+          "Access-Control-Allow-Origin": "*",
           Accept: "application/json",
           "Content-Type": "application/json",
           Authorization: "Bearer " + credentials.t,
