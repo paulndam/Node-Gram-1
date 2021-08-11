@@ -16,8 +16,22 @@ const createUser = async (user) => {
   }
 };
 
+// const listAllUsers = async () => {
+//   return await axios.get(`${process.env.REACT_APP_API}/users/`);
+// };
+
 const listAllUsers = async () => {
-  return await axios.get(`${process.env.REACT_APP_API}/users/`);
+  try {
+    let response = await fetch(`${process.env.REACT_APP_API}/users/`, {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const read = async (params, credentials, signal) => {
